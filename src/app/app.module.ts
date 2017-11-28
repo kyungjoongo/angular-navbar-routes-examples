@@ -8,10 +8,12 @@ import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {RouterModule, Routes} from "@angular/router";
 import { NavbarComponent } from './navbar/navbar.component';
+import { DietComponent } from './diet/diet.component';
 
 const appRoutes : Routes =[
   {path : '' , component : HomeComponent},
-  {path : 'about' , component: AboutComponent}
+  {path : 'about' , component: AboutComponent},
+  {path : 'diet' , component: DietComponent},
 ];
 
 
@@ -22,7 +24,8 @@ const appRoutes : Routes =[
     Test001Component,
     HomeComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    DietComponent
   ],
   imports: [
     BrowserModule,
