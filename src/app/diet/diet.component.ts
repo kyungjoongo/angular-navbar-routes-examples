@@ -7,7 +7,18 @@ import {Observable} from "rxjs/Observable";
     /*templateUrl: './diet.component.html',*/
     template: `
 
-        <h1>HelloWorld</h1>
+
+        
+
+        <section  *ngIf="showSpinner">
+            <mat-progress-bar
+                [color]="color"
+                [mode]="mode"
+                [value]="value"
+                [bufferValue]="bufferValue">
+            </mat-progress-bar>
+        </section>
+
 
         <table class="table table-responsive">
             <thead class="table-inverse">
@@ -37,19 +48,30 @@ import {Observable} from "rxjs/Observable";
 
 
 
-
     `,
     styleUrls: ['./diet.component.scss']
 })
 export class DietComponent implements OnInit {
-
+    color = 'primary';
+    mode = 'indeterminate';
+    value = 50;
     users: any[];
+    showSpinner: boolean = false;
 
     constructor(public dataService: DataService) {
 
+        this.showSpinner = true;
+
         this.dataService.getUsers().subscribe(users => {
             console.log(users);
-            this.users = users;
+
+            setTimeout(()=>{
+
+                this.users = users;
+                this.showSpinner= false;
+            },1000)
+
+
         })
 
 

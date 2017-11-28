@@ -9,7 +9,9 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {DietComponent} from './diet/diet.component';
 import {DataService} from "./services/data.service";
 import {HttpModule} from "@angular/http";
-
+import {MatProgressSpinnerModule } from '@angular/material';
+import {MatCardModule} from "@angular/material";
+import {MatProgressBarModule} from '@angular/material';
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'about', component: AboutComponent},
@@ -30,6 +32,9 @@ const appRoutes: Routes = [
         BrowserModule,
         RouterModule.forRoot(appRoutes),
         HttpModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        MatProgressBarModule,
     ],
     providers: [
         DataService,
